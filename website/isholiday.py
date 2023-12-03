@@ -1,13 +1,14 @@
-import sqlite3 as sql
-import random
+import sqlite3
 
-def isholiday(date):
-    print(date)
-    con = sql.connect("persian holiday 02.db")
-    # cur = con.cursor()
-    # ans = (cur.execute("select * from Holiday where date == '" + date+ "\'").fetchall()[0][7])
-    # return True if ans else False
 
-# date = "1402-01-04"
-# print("select * from Holiday where date == " + date)
-# print(isholiday(date)[0][7])
+def find_nearest_holiday(date):
+    conn = sqlite3.connect('persian holiday 04.db')
+    cur = conn.cursor()
+    cur.execute(f'select * from holiday where date = \'{date}\'')
+    index = cur.fetchall()[0][0]
+
+    while cur.execute(f'select * from holiday where id = {index}').fetchone()[7] != 'Y':
+        index += 1
+
+    nearest_holiday =  cur.execute(f'select * from holiday where id = {index}').fetchone()
+    return f'{nearest_holiday[1]} {nearest_holiday[6]}'
