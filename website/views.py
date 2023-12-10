@@ -7,8 +7,10 @@ import jdatetime
 # Create your views here.
 def main_page(request):
     today = str(jdatetime.datetime.now())[:10]
-    # today = '1402-09-26'
+    # today = '1402-09-25'
     status = isholiday.find_nearest_holiday(today)
+    status.update({'today': today.replace('-', '/')})
+    print(status)
 
     if status['distance'] == 0:
         status.update({'happy': 'امروز'})
