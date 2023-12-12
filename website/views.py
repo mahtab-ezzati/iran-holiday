@@ -8,6 +8,7 @@ import jdatetime
 def main_page(request):
     today = str(jdatetime.datetime.now())[:10]
     # today = '1402-09-25'
+
     status = isholiday.find_nearest_holiday(today)
     status.update({'today': today.replace('-', '/')})
     print(status)
