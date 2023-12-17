@@ -12,5 +12,5 @@ def find_nearest_holiday(date):
         nearest_index += 1
     
     nearest_holiday =  cur.execute(f'select * from holiday where id = {nearest_index}').fetchone()
-    print(nearest_holiday)
-    return {'distance': nearest_index-input_index, 'date': nearest_holiday[1], 'info':nearest_holiday[-1]}
+    date = nearest_holiday[1].replace('-', '/')
+    return {'distance': nearest_index-input_index, 'date': date, 'info':nearest_holiday[-1]}

@@ -7,7 +7,7 @@ import jdatetime
 # Create your views here.
 def main_page(request):
     today = str(jdatetime.datetime.now())[:10]
-    # today = '1402-09-25'
+    # today = '1402-09-27'
 
     status = isholiday.find_nearest_holiday(today)
     status.update({'today': today.replace('-', '/')})

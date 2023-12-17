@@ -1,14 +1,73 @@
 {%load static%}
-<!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>happy</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vazirmatn">
+    <!-- <link rel="stylesheet" href="D:\\html course\\B-NAZANIN.TTF"> -->
+    <meta charset="utf-8">
+    <title>
+        holiday
+    </title>
+
+    <style>
+        @font-face {
+            font-family: B-NAZANIN;
+            src: url("{% static 'B-NAZANIN.TTF'%}");
+            font-weight: bolder;
+        }
+
+        .main {
+            color: #505652;
+            font-family: 'Vazirmatn';
+            font-size: 70px;
+            text-align: center;
+        }
+
+        .center {
+            position: relative;
+            top: 20%;
+            left: 0%;
+            transform: (-50%, -50%);
+            margin: auto;
+        }
+
+        .date {
+            position: relative;
+            top: 1%;
+            left: 0px;
+            transform: (-50%, -50%);
+            margin: auto;
+            text-align: left;
+        }
+    </style>
 </head>
-<body>
-  {{today}} <br>
-  متاسفانه تا نزدیک ترین تعطیلی {{distance}} روز مونده<br>
-  تعطیلی به خاطر {{info}}
+
+<body style="background-color:#D8E2DC;">
+
+    <div class="date">
+        <p style="font-size: 18px; font-family: B-NAZANIN; color: #505652;">
+            <b>
+                {{today}}
+
+            </b>
+        </p>
+    </div>
+
+
+    <div class="center">
+        <p class="main" style="margin-bottom: -20px;">
+            <b>تا نزدیک‌ترین تعطیلی <br></b>
+            <b>{{distance}} روز مونده</b>
+        </p>
+        <p class="main" style="font-size: 25px; margin-bottom: -20px;">
+            <b>({{date}} بخاطر {{info}})</b>
+        </p>
+        <p class="main" style="font-size: 35px;">
+            <b></b>
+        </p>
+    </div>
+    <!-- <img src="{% static 'party.png'%}" alt="" style="height: 150px; width: 150px; position: relative; top: -40%; left: -65%;"> -->
+
 </body>
+
 </html>
